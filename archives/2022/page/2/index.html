@@ -838,272 +838,420 @@
 		<div id="index">
 	
 	<div class="index-li">
-		<a href="/2024/06/06/QA/QA/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB/">
 			<h2 class="index-title">
-				QA
+				全局异常处理类
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+
+
+
+
+
+
+
+
+在实际开发中，我们通常根据业务逻辑自定义异常处理，组合 @RestControllerAdvice 和 @ExceptionHandler 注解对异常进行处理，自定义异常通常会包含业务异常和系统异常
+
+示例
+
+
+ BusinessException.java
+
+
+
+
+
+ 
+  
+  public&nbsp;class&nbsp;BusinessException&nbsp;ext ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/redis/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%85%A8%E5%B1%80%E5%93%8D%E5%BA%94%E4%BD%93%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88ResponseBodyAdvice%EF%BC%89/%E5%8F%96%E6%B6%88%E5%B0%81%E8%A3%85/">
 			<h2 class="index-title">
-				redis
+				取消封装
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+
+
+
+
+
+
+
+
+
+ 如果特定业务中需要避免数据被全局响应体处理器封装，可以自定义一个注解作用于方法上，同时在 ResponseBodyAdvice.supports() 中对该注解进行过滤
+
+
+示例
+
+
+ IgnoreResponseAdvice.java
+
+
+
+
+
+ 
+  
+  @Documented
+  @Inherited
+  @Target({ElementType.ANNOTATION ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/rabbitmq/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%85%A8%E5%B1%80%E5%93%8D%E5%BA%94%E4%BD%93%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88ResponseBodyAdvice%EF%BC%89/%E5%93%8D%E5%BA%94%E4%BD%93%E7%A9%BA%E5%80%BC%E5%A4%84%E7%90%86/">
 			<h2 class="index-title">
-				rabbitmq
+				响应体空值处理
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+
+
+
+
+
+
+
+
+
+ 当请求接口不返回数据时，封装后响应体传递的 JSON 数据中 data 的值就会显示为 null，整体上看起来并不协调，我们可以对 data 的空值进行处理，转化为空符串
+
+
+&nbsp;
+
+
+
+&nbsp;
+
+
+ 我们可以自定义一个 Jackson 配置类，在配置类中使用 Jackson2ObjectMapperBuilder 来建一个 ObjectMapper 用于获取当 ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/rocketmq/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%85%A8%E5%B1%80%E5%93%8D%E5%BA%94%E4%BD%93%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88ResponseBodyAdvice%EF%BC%89/%E5%85%A8%E5%B1%80%E5%93%8D%E5%BA%94%E4%BD%93%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88ResponseBodyAdvice%EF%BC%89/">
 			<h2 class="index-title">
-				rocketmq
+				全局响应体处理器（ResponseBodyAdvice）
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+
+
+
+
+
+
+
+
+
+ 封装响应体依旧需要在控制层频繁使用 Result.success()，Result.fail() 手动封装响应体返回，这造成了代码的大量耦合，并且也污染了业务处理的代码逻辑
+
+
+&nbsp;
+
+
+ SpringMVC
+     4.1 后提供了 ResponseBodyAdvice 接口用于拦截 Controller 方法的返回值，它允许在执行 @ResponseBody 后 ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/">
 			<h2 class="index-title">
-				系统设计最佳实践
+				前后端数据交互对接
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+
+
+
+
+
+
+
+
+
+ 默认情况下
+     SpringBoot 对返回的数据有以下对应的返回类型，如果没有对数据进行统一，前端获取到数据时就不能很好的进行处理
+
+
+&nbsp;
+
+
+
+&nbsp;
+
+
+ 因此在以前的开发中我们会定义统一的 Result 响应体和
+     ResultCode 错误码，使用 Result.success()，Result.fail() 来封装成统一的响应体返回数 ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%84/%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%84/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E8%AF%B7%E6%B1%82%E6%8B%A6%E6%88%AA%EF%BC%88HandlerInterceptor%20&%20Filter%20&%20@WebFilter%EF%BC%89/">
 			<h2 class="index-title">
-				开源测评
+				请求拦截（HandlerInterceptor & Filter & @WebFilter）
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+    Spring
+                Boot中有两种拦截网页方式，可以对未登录的请求进行拦截，防止用户跳过登录，直接进入界面
+        
+            Filter
+                    过滤器
+            HandlerInterceptor 拦截器
+            
+        
+    
+
+&nbsp;
+
+     ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/%E6%89%B9%E9%87%8F%E6%B3%A8%E5%85%A5%EF%BC%88@ConfigurationProperties%20@EnableConfigurationProperties%EF%BC%89/">
 			<h2 class="index-title">
-				软件测评
+				批量注入（@ConfigurationProperties @EnableConfigurationProperties）
 			</h2>
 			<div class="index-brief">
-				最爱的软件
+				
+    @ConfigurationProperties中的前缀属性定义了哪些外部属性将绑定到类的字段上
 
+&nbsp;
 
-软件名
-类型
-平台
-评价
-
-
-
-Jetbrains出品
-IDE(Java、JavaScript、Python、Go)
-Mac/Win
-能和它打的应该只有Visual Studio
-
-
-Navicat Premium
-数据库可视化软件
-Mac/Win
-无敌
-
-
-XShell
-Linux 连接工具
-Win
-无敌
-
-
-Termius
-Linux 连接工具
-Mac
-但凡XShell支持ma ...
+    
+        
+            
+                参数
+            
+            
+                描述
+            
+        
+        
+            
+   ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/05/%E8%BF%90%E7%BB%B4/%E8%BF%90%E7%BB%B4/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/%E9%80%90%E4%B8%AA%E6%B3%A8%E5%85%A5%EF%BC%88@Value%EF%BC%89/">
 			<h2 class="index-title">
-				运维
+				逐个注入（@Value）
 			</h2>
 			<div class="index-brief">
-				未完待续 ...
+				
+    @Value是spring中的属性注解，使用@Value注解可以取出全局配置中的属性，注入到参数中
+
+&nbsp;
+
+    在application.properties中添加自定义属性
+
+&nbsp;
+user.name=admin
+user.password=123456
+&nbsp;
+示例
+@RestController
+public&nbsp;class&nbsp;UserCo ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/05/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/">
 			<h2 class="index-title">
-				大语言模型
+				全局配置属性注入
 			</h2>
 			<div class="index-brief">
-				未完待续 ...
+				
+    Spring
+                boot注入全局配置属性有两种方法
+        
+            使用@Value逐个注入
+            
+            使用@ConfigurationProperties批量注入
+            
+        
+    
+
+注
+@Value直接在Controller类的参数上注入使用
+@Conf ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/05/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/%E5%B1%9E%E6%80%A7%E6%9D%BE%E6%95%A3%E7%BB%91%E5%AE%9A%E8%A7%84%E5%88%99/">
 			<h2 class="index-title">
-				读书笔记
+				属性松散绑定规则
 			</h2>
 			<div class="index-brief">
-				清单
+				
+    Spring Boot 属性名绑定比较松散。
+
+&nbsp;
 
 
-书名
-作者
-类型
+    以下属性 key 都是等价的：
 
 
-
-人性的枷锁
-毛姆
-小说
-
-
-丧钟为谁而鸣
-海明威
-小说
-
-
-理想国
-柏拉图
-小说
-
-
-熔炉
-孔枝泳
-小说
-
-
-北上
-徐则臣
-小说
-
-
-山本
-贾平凹
-小说
-
-
-百年孤独
-马尔克斯
-小说
-
-
-我这一辈子
-老舍
-小说
-
-
-我是猫
-夏目淑石
-小说
-
-
-暗算
-
-小说
-
-
-酒国
-
-小说
-
-
-子夜
-
-小说
-
-
-沉沦
-
-小说
-
-
-假如给我三天光明
-
-小说
-
-
-乌合之众
-
-社科
-
- ...
+    
+        
+            
+                属性
+            
+            
+                方式
+            
+        
+        
+            
+      ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 
 	<div id="index-paginator">
-		 <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">&gt;</a> 
+		 <a class="extend prev" rel="prev" href="/archives/2022/">&lt;</a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2022/page/3/">3</a><a class="page-number" href="/archives/2022/page/4/">4</a><a class="extend next" rel="next" href="/archives/2022/page/3/">&gt;</a> 
 	</div>
 </div>
 

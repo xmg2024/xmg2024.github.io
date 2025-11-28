@@ -838,272 +838,371 @@
 		<div id="index">
 	
 	<div class="index-li">
-		<a href="/2024/06/06/QA/QA/">
+		<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F%EF%BC%88@Transactional%EF%BC%89/%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5%E4%BD%BF%E7%94%A8%E4%BA%8B%E5%8A%A1%EF%BC%88@Around%EF%BC%89/">
 			<h2 class="index-title">
-				QA
+				环绕通知使用事务（@Around）
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+    环绕通知可以在目标方法的前和后都能增强功能，不需要修改代码代码
+
+​​​​​​​
+
+    spring给业务方法在执行时，增加上事务的切面功能，在添加环绕事务方法
+
+示例
+
+    
+        
+            
+                @Pointcut("@annotation(com.exi.dao.Permissions)")
+               ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-11-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring/"
+					>Spring</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/redis/">
+		<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F%EF%BC%88@Transactional%EF%BC%89/%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F%EF%BC%88@Transactional%EF%BC%89/">
 			<h2 class="index-title">
-				redis
+				使用注解方式（@Transactional）
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+    使用AspectJ AOP的注解方式@Transactional
+
+&nbsp;
+
+    @Transactional有以下参数
+
+
+    
+        
+            
+                参数
+            
+            
+                描述
+            
+        
+        
+      ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-11-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring/"
+					>Spring</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/rabbitmq/">
+		<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/%E9%85%8D%E7%BD%AExml%E6%96%B9%E5%BC%8F/%E5%88%9B%E5%BB%BA%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8/">
 			<h2 class="index-title">
-				rabbitmq
+				创建事务管理器
 			</h2>
 			<div class="index-brief">
-				 ...
+				JDBC事务
+如果应用程序中直接使用JDBC来进行持久化，DataSourceTransactionManager会为你处理事务边界。为了使用DataSourceTransactionManager，你需要使用如下的XML将其装配到应用程序的上下文定义中：
+示例
+&lt;bean id="transactionManager"class="org.springframework.jdbc.data ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-11-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring/"
+					>Spring</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/rocketmq/">
+		<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/%E9%85%8D%E7%BD%AExml%E6%96%B9%E5%BC%8F/%E9%85%8D%E7%BD%AExml%E6%96%B9%E5%BC%8F/">
 			<h2 class="index-title">
-				rocketmq
+				配置xml方式
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+    Spring中xml中配置事务属性有两种方式：
+        
+            使用AspectJ AOP中的tx标签定义切面对象事务的属性
+        
+        
+            直接在事务代理（TransactionProxyFactoryBean）中添加属性
+            使用事务拦截器（TransactionInterceptor）批量处理 ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-11-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring/"
+					>Spring</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+		<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/">
 			<h2 class="index-title">
-				系统设计最佳实践
+				声明式事务（xml & 注解）
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+    Spring配置文件中关于事务配置总是由三个组成部分，分别是DataSource、TransactionManager和代理机制这三部分，无论哪种配置方式，一般变化的只是代理机制这部分。
+
+&nbsp;
+
+    DataSource、TransactionManager这两部分只是会根据数据访问方式有所变化，比如使用Hibernate进行数据访问时，DataSource实际为Sessi ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-11-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring/"
+					>Spring</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%84/%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%84/">
+		<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/TransactionManager%20%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8/%E4%BA%8B%E5%8A%A1%E7%8A%B6%E6%80%81/">
 			<h2 class="index-title">
-				开源测评
+				事务状态
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+    &nbsp;调用PlatformTransactionManager接口的getTransaction()的方法得到的是TransactionStatus接口的一个实现，这个接口的内容如下
+
+​​​​​​​
+
+    
+        
+            
+                接口方法
+            
+            
+                 ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-11-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring/"
+					>Spring</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/">
+		<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/TransactionManager%20%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8/%E4%BA%8B%E5%8A%A1%E5%B1%9E%E6%80%A7/">
 			<h2 class="index-title">
-				软件测评
+				事务属性
 			</h2>
 			<div class="index-brief">
-				最爱的软件
-
-
-软件名
-类型
-平台
-评价
+				
+    TransactionDefinition类中定义了，事物的基本属性，事务属性可以理解成事务的一些基本配置，描述了事务策略如何应用到方法上。
+    
 
 
 
-Jetbrains出品
-IDE(Java、JavaScript、Python、Go)
-Mac/Win
-能和它打的应该只有Visual Studio
+    事务属性包含了5个方面
 
 
-Navicat Premium
-数据库可视化软件
-Mac/Win
-无敌
+
+    TransactionDefinition接口方法内容如下
+    
 
 
-XShell
-Linux 连接工具
-Win
-无敌
-
-
-Termius
-Linux 连接工具
-Mac
-但凡XShell支持ma ...
+    
+        
+            
+                方法
+           ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-11-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring/"
+					>Spring</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/05/%E8%BF%90%E7%BB%B4/%E8%BF%90%E7%BB%B4/">
+		<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E4%BA%8B%E5%8A%A1/">
 			<h2 class="index-title">
-				运维
+				事务
 			</h2>
 			<div class="index-brief">
-				未完待续 ...
+				
+    事务是一系列的动作，它们综合起来是一个完整的工作单元，这些动作必须全部完成，如果有一个失败的话，那么事务就会回滚到最开始的状态
+    
+
+&nbsp;
+
+    事务有四个特性
+        
+            原子性（Atomicity）：事务是一个原子操作，由一系列动作组成。事务的原子性确保动作要么全部完成，要么完全不起作用。
+            
+           ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-11-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring/"
+					>Spring</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/05/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB/">
 			<h2 class="index-title">
-				大语言模型
+				全局异常处理类
 			</h2>
 			<div class="index-brief">
-				未完待续 ...
+				
+
+
+
+
+
+
+
+
+在实际开发中，我们通常根据业务逻辑自定义异常处理，组合 @RestControllerAdvice 和 @ExceptionHandler 注解对异常进行处理，自定义异常通常会包含业务异常和系统异常
+
+示例
+
+
+ BusinessException.java
+
+
+
+
+
+ 
+  
+  public&nbsp;class&nbsp;BusinessException&nbsp;ext ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/05/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%85%A8%E5%B1%80%E5%93%8D%E5%BA%94%E4%BD%93%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88ResponseBodyAdvice%EF%BC%89/%E5%8F%96%E6%B6%88%E5%B0%81%E8%A3%85/">
 			<h2 class="index-title">
-				读书笔记
+				取消封装
 			</h2>
 			<div class="index-brief">
-				清单
-
-
-书名
-作者
-类型
+				
 
 
 
-人性的枷锁
-毛姆
-小说
 
 
-丧钟为谁而鸣
-海明威
-小说
 
 
-理想国
-柏拉图
-小说
 
 
-熔炉
-孔枝泳
-小说
+ 如果特定业务中需要避免数据被全局响应体处理器封装，可以自定义一个注解作用于方法上，同时在 ResponseBodyAdvice.supports() 中对该注解进行过滤
 
 
-北上
-徐则臣
-小说
+示例
 
 
-山本
-贾平凹
-小说
+ IgnoreResponseAdvice.java
 
 
-百年孤独
-马尔克斯
-小说
 
 
-我这一辈子
-老舍
-小说
 
-
-我是猫
-夏目淑石
-小说
-
-
-暗算
-
-小说
-
-
-酒国
-
-小说
-
-
-子夜
-
-小说
-
-
-沉沦
-
-小说
-
-
-假如给我三天光明
-
-小说
-
-
-乌合之众
-
-社科
-
- ...
+ 
+  
+  @Documented
+  @Inherited
+  @Target({ElementType.ANNOTATION ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 
 	<div id="index-paginator">
-		 <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">&gt;</a> 
+		 <a class="extend prev" rel="prev" href="/archives/page/2/">&lt;</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/4/">&gt;</a> 
 	</div>
 </div>
 

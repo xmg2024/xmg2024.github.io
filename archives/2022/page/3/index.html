@@ -838,272 +838,348 @@
 		<div id="index">
 	
 	<div class="index-li">
-		<a href="/2024/06/06/QA/QA/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/">
 			<h2 class="index-title">
-				QA
+				日志配置
 			</h2>
 			<div class="index-brief">
-				 ...
+				日志等级控制
+
+    在Spring 全局配置文件中，可以分别对具体的包名设置日志等级
+
+示例
+#根据包名设置权限
+logging:
+level:
+root:
+            info
+com.example.service: debug
+com.example.controller: debug
+com.example.dao: debug
+示例
+#根据分组设置权限
+logging:
+ ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/redis/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/%E5%B1%9E%E6%80%A7%E5%8A%A0%E5%AF%86/">
 			<h2 class="index-title">
-				redis
+				属性加密
 			</h2>
 			<div class="index-brief">
-				 ...
+				
+    配置文件中往往含有比较敏感的信息，例如，数据库密码，这些数据一旦泄露有可能造成严重的后果
+    
+
+&nbsp;
+
+    Jasypt(Java Simplified
+                Encryption)，一个用于加密的Java类库，目的就是让开发者很简便的将加密功能引入自己的项目中来，而不需要去明白具体的加密知识，其有如下特点：
+        
+         ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-06</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 	<div class="index-li">
-		<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/rabbitmq/">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%88%87%E6%8D%A2/">
 			<h2 class="index-title">
-				rabbitmq
+				多环境配置切换
 			</h2>
 			<div class="index-brief">
-				 ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2024-06-06</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/rocketmq/">
-			<h2 class="index-title">
-				rocketmq
-			</h2>
-			<div class="index-brief">
-				 ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2024-06-06</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2024/06/06/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
-			<h2 class="index-title">
-				系统设计最佳实践
-			</h2>
-			<div class="index-brief">
-				 ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2024-06-05</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2024/06/06/%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%84/%E5%BC%80%E6%BA%90%E6%B5%8B%E8%AF%84/">
-			<h2 class="index-title">
-				开源测评
-			</h2>
-			<div class="index-brief">
-				 ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2024-06-05</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2024/06/06/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/">
-			<h2 class="index-title">
-				软件测评
-			</h2>
-			<div class="index-brief">
-				最爱的软件
+				
+    我们一般都会有多个应用环境，开发环境、测试环境、生产环境，各个环境的配置会略有不同，我可以根据这个创建多份配置文件，由主配置文件来控制读取特定的子配置
+    
+
+&nbsp;
+
+    创建子配置文件，格式application-xxx.[properties /
+                yml / yaml]
 
 
-软件名
-类型
-平台
-评价
+或
 
+&nbsp;
 
-
-Jetbrains出品
-IDE(Java、JavaScript、Python、Go)
-Mac/Win
-能和它打的应该只有Visual Studio
-
-
-Navicat Premium
-数据库可视化软件
-Mac/Win
-无敌
-
-
-XShell
-Linux 连接工具
-Win
-无敌
-
-
-Termius
-Linux 连接工具
-Mac
-但凡XShell支持ma ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2024-06-05</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2024/06/05/%E8%BF%90%E7%BB%B4/%E8%BF%90%E7%BB%B4/">
-			<h2 class="index-title">
-				运维
-			</h2>
-			<div class="index-brief">
-				未完待续 ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2024-06-05</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2024/06/05/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
-			<h2 class="index-title">
-				大语言模型
-			</h2>
-			<div class="index-brief">
-				未完待续 ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2024-06-05</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2024/06/05/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-			<h2 class="index-title">
-				读书笔记
-			</h2>
-			<div class="index-brief">
-				清单
-
-
-书名
-作者
-类型
-
-
-
-人性的枷锁
-毛姆
-小说
-
-
-丧钟为谁而鸣
-海明威
-小说
-
-
-理想国
-柏拉图
-小说
-
-
-熔炉
-孔枝泳
-小说
-
-
-北上
-徐则臣
-小说
-
-
-山本
-贾平凹
-小说
-
-
-百年孤独
-马尔克斯
-小说
-
-
-我这一辈子
-老舍
-小说
-
-
-我是猫
-夏目淑石
-小说
-
-
-暗算
-
-小说
-
-
-酒国
-
-小说
-
-
-子夜
-
-小说
-
-
-沉沦
-
-小说
-
-
-假如给我三天光明
-
-小说
-
-
-乌合之众
-
-社科
+    在主配置文件中指定
+    
 
  ...
 			</div>
 		</a>
 		<div class="article-meta">
-			<span>2024-06-05</span>
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
+			  
+		</div>
+	</div>
+	
+	<div class="index-li">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/">
+			<h2 class="index-title">
+				全局配置（application.properties）
+			</h2>
+			<div class="index-brief">
+				
+    Spring
+                Boot使用一个application.properties或者application.yaml（application.yml）的文件作为全局配置文件，两种配置方式属性相同，只是格式不同
+
+&nbsp;
+
+    我们可以在application.properties文件中定义Spring Boot项目的相关属性，当然，这些相关属性可以是系 ...
+			</div>
+		</a>
+		<div class="article-meta">
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
+			  
+		</div>
+	</div>
+	
+	<div class="index-li">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%85%8D%E7%BD%AE%E7%B1%BB%EF%BC%88ConfigurableApplicationContext%EF%BC%89/%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%EF%BC%88@SpringBootApplication%EF%BC%89/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%88@EnableAutoConfiguration%EF%BC%89/%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%EF%BC%88@AutoConfigurationPackage%EF%BC%89/%E6%9D%A1%E4%BB%B6%E5%AF%BC%E5%85%A5%EF%BC%88@Conditional%EF%BC%89/">
+			<h2 class="index-title">
+				条件导入（@Conditional）
+			</h2>
+			<div class="index-brief">
+				
+    @Conditional注解可以根据代码中设置的条件装载不同的bean，符合条件则加载该bean，不符合则不加载该bean
+
+&nbsp;
+
+    
+        
+            
+                参数
+            
+            
+                描述
+            
+        
+        
+   ...
+			</div>
+		</a>
+		<div class="article-meta">
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
+			  
+		</div>
+	</div>
+	
+	<div class="index-li">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%85%8D%E7%BD%AE%E7%B1%BB%EF%BC%88ConfigurableApplicationContext%EF%BC%89/%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%EF%BC%88@SpringBootApplication%EF%BC%89/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%88@EnableAutoConfiguration%EF%BC%89/%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%EF%BC%88@AutoConfigurationPackage%EF%BC%89/%E7%B1%BB%E5%AF%BC%E5%85%A5%EF%BC%88@Import%EF%BC%89/">
+			<h2 class="index-title">
+				类导入（@Import）
+			</h2>
+			<div class="index-brief">
+				
+    @Import注解的作用是把类加入Spring IOC容器。
+
+​​​​​​​
+
+    Spring Boot
+            有多种方式能让类加IOC容器管理，如@Bean、@Component等，@Import是另外一种方式，更加快捷
+    
+
+&nbsp;
+
+    
+        
+            
+                参数
+           ...
+			</div>
+		</a>
+		<div class="article-meta">
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
+			  
+		</div>
+	</div>
+	
+	<div class="index-li">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%85%8D%E7%BD%AE%E7%B1%BB%EF%BC%88ConfigurableApplicationContext%EF%BC%89/%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%EF%BC%88@SpringBootApplication%EF%BC%89/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%88@EnableAutoConfiguration%EF%BC%89/%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%EF%BC%88@AutoConfigurationPackage%EF%BC%89/%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%EF%BC%88@AutoConfigurationPackage%EF%BC%89/">
+			<h2 class="index-title">
+				自动导入包（@AutoConfigurationPackage）
+			</h2>
+			<div class="index-brief">
+				
+    @AutoConfigurationPackage的作用就是给容器中导入某个包中全部组件类注册到Spring Boot中的容器中
+
+&nbsp;
+
+    @AutoConfigurationPackage注解的功能是由@Import注解封装实现的，不用对每个类单独添加 @Import，直接引入包路径更方便
+    
+
+示例
+
+    
+        
+            
+    ...
+			</div>
+		</a>
+		<div class="article-meta">
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
+			  
+		</div>
+	</div>
+	
+	<div class="index-li">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%85%8D%E7%BD%AE%E7%B1%BB%EF%BC%88ConfigurableApplicationContext%EF%BC%89/%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%EF%BC%88@SpringBootApplication%EF%BC%89/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%88@EnableAutoConfiguration%EF%BC%89/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%88@EnableAutoConfiguration%EF%BC%89/">
+			<h2 class="index-title">
+				自动配置类加载（@EnableAutoConfiguration）
+			</h2>
+			<div class="index-brief">
+				
+    @EnableAutoConfiguration用于类或接口上，当spring boot扫描到@EnableAutoConfiguration注解时则会将spring-boot-autoconfigure.jar/META-INF/spring.factories文件中org.springframework.boot.autoconfigure.EnableAutoConfigurati ...
+			</div>
+		</a>
+		<div class="article-meta">
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
+			  
+		</div>
+	</div>
+	
+	<div class="index-li">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%85%8D%E7%BD%AE%E7%B1%BB%EF%BC%88ConfigurableApplicationContext%EF%BC%89/%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%EF%BC%88@SpringBootApplication%EF%BC%89/%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%EF%BC%88@SpringBootApplication%EF%BC%89/">
+			<h2 class="index-title">
+				核心注解（@SpringBootApplication）
+			</h2>
+			<div class="index-brief">
+				
+    @SpringBootApplication是Sprnig Boot项目的核心注解，目的是开启自动配置，之前用户使用的是3个注解注解他们的main类。分别是@Configuration,@EnableAutoConfiguration,@ComponentScan。
+
+&nbsp;
+
+    由于这些注解一般都是一起使用，spring boot提供了一个统一的注解@SpringBootA ...
+			</div>
+		</a>
+		<div class="article-meta">
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
+			  
+		</div>
+	</div>
+	
+	<div class="index-li">
+		<a href="/2022/09/29/Spring/Spring%20Boot/%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%85%8D%E7%BD%AE%E7%B1%BB%EF%BC%88ConfigurableApplicationContext%EF%BC%89/%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%85%8D%E7%BD%AE%E7%B1%BB%EF%BC%88ConfigurableApplicationContext%EF%BC%89/">
+			<h2 class="index-title">
+				应用上下文配置类（ConfigurableApplicationContext）
+			</h2>
+			<div class="index-brief">
+				
+    在Spring Boot中 ConfigurableApplicationContext 继承了 ApplicationContext
+            和 Lifecyle 、Closeable接口
+
+
+
+&nbsp;
+
+    ApplicationContext是Spring中的应用上下文
+
+
+
+    Lifecycle&nbsp;接口则是负责对
+              ...
+			</div>
+		</a>
+		<div class="article-meta">
+			<span>2022-09-28</span>
+			  
+			<span>
+				<i class="fa fa-folder" aria-hidden="true"></i>
+				<a href="/categories/Spring-Boot/"
+					>Spring Boot</a
+				>
+				
+			</span>
 			  
 		</div>
 	</div>
 	
 
 	<div id="index-paginator">
-		 <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">&gt;</a> 
+		 <a class="extend prev" rel="prev" href="/archives/2022/page/2/">&lt;</a><a class="page-number" href="/archives/2022/">1</a><a class="page-number" href="/archives/2022/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2022/page/4/">4</a><a class="extend next" rel="next" href="/archives/2022/page/4/">&gt;</a> 
 	</div>
 </div>
 

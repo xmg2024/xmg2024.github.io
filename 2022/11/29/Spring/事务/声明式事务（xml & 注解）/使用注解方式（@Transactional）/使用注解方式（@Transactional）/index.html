@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<!-- title -->
+	
+	<title>
+	
+		使用注解方式（@Transactional）&nbsp;&nbsp;✦&nbsp;
+	
+	Book
+	</title>
+
+	<!-- keywords,description -->
+	
+
+	
+
+	
+
+	
+		<meta name="description" content="每一个不曾起舞的日子，都是对生命的辜负" />
+	
+
+	<!-- favicon -->
+	
+
+
+	<!-- search -->
+	<script>
+		let searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		let homeHost = "https://wangchangwei.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+	
+
+	
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+<body>
+	<header id="header">
+	<a id="title" href="/" class="log<div class=""></div>
+		<img id="logo" src="/favicon-white.ico" alt="logo"/>
+		Book
+	</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">关于</a>
+		</li>
+		
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+		 
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+		
+		<li class="menu-item">
+			<a href="https://github.com/wangchangwei" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+		<li class="menu-item dark-mode">
+			<a href="#" class="menu-item-link">
+				<i class="fa fa-moon-o fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2024/06/05/读书笔记/读书笔记/" title="读书笔记/读书笔记">
+											读书笔记
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2021/03/27/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%BA%BA%E6%80%A7%E7%9A%84%E6%9E%B7%E9%94%81/" title="读书笔记/人性的枷锁">
+									
+										人性的枷锁
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/03/27/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E9%85%92%E5%9B%BD/" title="读书笔记/酒国">
+									
+										酒国
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/11/29/消息队列/消息队列/" title="消息队列/消息队列">
+											消息队列
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/06/27/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/kafka/" title="消息队列/kafka">
+									
+										kafka
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/rocketmq/" title="消息队列/rocketmq">
+									
+										rocketmq
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/rabbitmq/" title="消息队列/rabbitmq">
+									
+										rabbitmq
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2024/06/06/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/redis/" title="消息队列/redis">
+									
+										redis
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/06/28/Spring/Spring/" title="Spring/Spring">
+											Spring
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/06/28/Spring/%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC%EF%BC%88IOC%EF%BC%89%EF%BC%8F%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%EF%BC%88DI%EF%BC%89/" title="Spring/控制反转（IOC）／依赖注入（DI）">
+									
+										控制反转（IOC）／依赖注入（DI）
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/06/28/Spring/ApplicationContext%20%E5%AE%B9%E5%99%A8/" title="Spring/ApplicationContext 容器">
+									
+										ApplicationContext 容器
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/06/29/Spring/SSM%20%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/" title="Spring/SSM 框架整合">
+									
+										SSM 框架整合
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/09/29/Spring/Spring Boot/Spring Boot/" title="Spring/Spring Boot/Spring Boot">
+											Spring Boot
+										</a>
+									</a>
+									
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/09/29/Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/应用上下文配置类（ConfigurableApplicationContext）/" title="Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/应用上下文配置类（ConfigurableApplicationContext）">
+											应用上下文配置类（ConfigurableApplicationContext）
+										</a>
+									</a>
+									
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/09/29/Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/核心注解（@SpringBootApplication）/核心注解（@SpringBootApplication）/" title="Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/核心注解（@SpringBootApplication）/核心注解（@SpringBootApplication）">
+											核心注解（@SpringBootApplication）
+										</a>
+									</a>
+									
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/09/29/Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/核心注解（@SpringBootApplication）/自动配置类加载（@EnableAutoConfiguration）/自动配置类加载（@EnableAutoConfiguration）/" title="Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/核心注解（@SpringBootApplication）/自动配置类加载（@EnableAutoConfiguration）/自动配置类加载（@EnableAutoConfiguration）">
+											自动配置类加载（@EnableAutoConfiguration）
+										</a>
+									</a>
+									
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/09/29/Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/核心注解（@SpringBootApplication）/自动配置类加载（@EnableAutoConfiguration）/自动导入包（@AutoConfigurationPackage）/自动导入包（@AutoConfigurationPackage）/" title="Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/核心注解（@SpringBootApplication）/自动配置类加载（@EnableAutoConfiguration）/自动导入包（@AutoConfigurationPackage）/自动导入包（@AutoConfigurationPackage）">
+											自动导入包（@AutoConfigurationPackage）
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%85%8D%E7%BD%AE%E7%B1%BB%EF%BC%88ConfigurableApplicationContext%EF%BC%89/%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%EF%BC%88@SpringBootApplication%EF%BC%89/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%88@EnableAutoConfiguration%EF%BC%89/%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%EF%BC%88@AutoConfigurationPackage%EF%BC%89/%E7%B1%BB%E5%AF%BC%E5%85%A5%EF%BC%88@Import%EF%BC%89/" title="Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/核心注解（@SpringBootApplication）/自动配置类加载（@EnableAutoConfiguration）/自动导入包（@AutoConfigurationPackage）/类导入（@Import）">
+									
+										类导入（@Import）
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%85%8D%E7%BD%AE%E7%B1%BB%EF%BC%88ConfigurableApplicationContext%EF%BC%89/%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%EF%BC%88@SpringBootApplication%EF%BC%89/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%88@EnableAutoConfiguration%EF%BC%89/%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%EF%BC%88@AutoConfigurationPackage%EF%BC%89/%E6%9D%A1%E4%BB%B6%E5%AF%BC%E5%85%A5%EF%BC%88@Conditional%EF%BC%89/" title="Spring/Spring Boot/应用上下文配置类（ConfigurableApplicationContext）/核心注解（@SpringBootApplication）/自动配置类加载（@EnableAutoConfiguration）/自动导入包（@AutoConfigurationPackage）/条件导入（@Conditional）">
+									
+										条件导入（@Conditional）
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+								</li>
+							</ul>
+			
+								</li>
+							</ul>
+			
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/09/29/Spring/Spring Boot/全局配置（application.properties）/全局配置（application.properties）/" title="Spring/Spring Boot/全局配置（application.properties）/全局配置（application.properties）">
+											全局配置（application.properties）
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%88%87%E6%8D%A2/" title="Spring/Spring Boot/全局配置（application.properties）/多环境配置切换">
+									
+										多环境配置切换
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/%E5%B1%9E%E6%80%A7%E5%8A%A0%E5%AF%86/" title="Spring/Spring Boot/全局配置（application.properties）/属性加密">
+									
+										属性加密
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/" title="Spring/Spring Boot/全局配置（application.properties）/日志配置">
+									
+										日志配置
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%EF%BC%88application.properties%EF%BC%89/%E5%B1%9E%E6%80%A7%E6%9D%BE%E6%95%A3%E7%BB%91%E5%AE%9A%E8%A7%84%E5%88%99/" title="Spring/Spring Boot/全局配置（application.properties）/属性松散绑定规则">
+									
+										属性松散绑定规则
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/09/29/Spring/Spring Boot/全局配置属性注入/全局配置属性注入/" title="Spring/Spring Boot/全局配置属性注入/全局配置属性注入">
+											全局配置属性注入
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/%E9%80%90%E4%B8%AA%E6%B3%A8%E5%85%A5%EF%BC%88@Value%EF%BC%89/" title="Spring/Spring Boot/全局配置属性注入/逐个注入（@Value）">
+									
+										逐个注入（@Value）
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/%E6%89%B9%E9%87%8F%E6%B3%A8%E5%85%A5%EF%BC%88@ConfigurationProperties%20@EnableConfigurationProperties%EF%BC%89/" title="Spring/Spring Boot/全局配置属性注入/批量注入（@ConfigurationProperties @EnableConfigurationProperties）">
+									
+										批量注入（@ConfigurationProperties @EnableConfigurationProperties）
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E8%AF%B7%E6%B1%82%E6%8B%A6%E6%88%AA%EF%BC%88HandlerInterceptor%20&%20Filter%20&%20@WebFilter%EF%BC%89/" title="Spring/Spring Boot/请求拦截（HandlerInterceptor & Filter & @WebFilter）">
+									
+										请求拦截（HandlerInterceptor & Filter & @WebFilter）
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/09/29/Spring/Spring Boot/前后端数据交互对接/前后端数据交互对接/" title="Spring/Spring Boot/前后端数据交互对接/前后端数据交互对接">
+											前后端数据交互对接
+										</a>
+									</a>
+									
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/09/29/Spring/Spring Boot/前后端数据交互对接/全局响应体处理器（ResponseBodyAdvice）/全局响应体处理器（ResponseBodyAdvice）/" title="Spring/Spring Boot/前后端数据交互对接/全局响应体处理器（ResponseBodyAdvice）/全局响应体处理器（ResponseBodyAdvice）">
+											全局响应体处理器（ResponseBodyAdvice）
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%85%A8%E5%B1%80%E5%93%8D%E5%BA%94%E4%BD%93%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88ResponseBodyAdvice%EF%BC%89/%E5%8F%96%E6%B6%88%E5%B0%81%E8%A3%85/" title="Spring/Spring Boot/前后端数据交互对接/全局响应体处理器（ResponseBodyAdvice）/取消封装">
+									
+										取消封装
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%85%A8%E5%B1%80%E5%93%8D%E5%BA%94%E4%BD%93%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88ResponseBodyAdvice%EF%BC%89/%E5%93%8D%E5%BA%94%E4%BD%93%E7%A9%BA%E5%80%BC%E5%A4%84%E7%90%86/" title="Spring/Spring Boot/前后端数据交互对接/全局响应体处理器（ResponseBodyAdvice）/响应体空值处理">
+									
+										响应体空值处理
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/29/Spring/Spring%20Boot/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E5%AF%B9%E6%8E%A5/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB/" title="Spring/Spring Boot/前后端数据交互对接/全局异常处理类">
+									
+										全局异常处理类
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/11/29/Spring/事务/事务/" title="Spring/事务/事务">
+											事务
+										</a>
+									</a>
+									
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/06/29/Spring/事务/TransactionManager 事务管理器/TransactionManager 事务管理器/" title="Spring/事务/TransactionManager 事务管理器/TransactionManager 事务管理器">
+											TransactionManager 事务管理器
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/TransactionManager%20%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8/%E4%BA%8B%E5%8A%A1%E5%B1%9E%E6%80%A7/" title="Spring/事务/TransactionManager 事务管理器/事务属性">
+									
+										事务属性
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/TransactionManager%20%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8/%E4%BA%8B%E5%8A%A1%E7%8A%B6%E6%80%81/" title="Spring/事务/TransactionManager 事务管理器/事务状态">
+									
+										事务状态
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/11/29/Spring/事务/声明式事务（xml & 注解）/声明式事务（xml & 注解）/" title="Spring/事务/声明式事务（xml & 注解）/声明式事务（xml & 注解）">
+											声明式事务（xml & 注解）
+										</a>
+									</a>
+									
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2022/11/29/Spring/事务/声明式事务（xml & 注解）/配置xml方式/配置xml方式/" title="Spring/事务/声明式事务（xml & 注解）/配置xml方式/配置xml方式">
+											配置xml方式
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/%E9%85%8D%E7%BD%AExml%E6%96%B9%E5%BC%8F/%E5%88%9B%E5%BB%BA%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8/" title="Spring/事务/声明式事务（xml & 注解）/配置xml方式/创建事务管理器">
+									
+										创建事务管理器
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory active" href="/2022/11/29/Spring/事务/声明式事务（xml & 注解）/使用注解方式（@Transactional）/使用注解方式（@Transactional）/" title="Spring/事务/声明式事务（xml & 注解）/使用注解方式（@Transactional）/使用注解方式（@Transactional）">
+											使用注解方式（@Transactional）
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F%EF%BC%88@Transactional%EF%BC%89/%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5%E4%BD%BF%E7%94%A8%E4%BA%8B%E5%8A%A1%EF%BC%88@Around%EF%BC%89/" title="Spring/事务/声明式事务（xml & 注解）/使用注解方式（@Transactional）/环绕通知使用事务（@Around）">
+									
+										环绕通知使用事务（@Around）
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+								</li>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E7%BC%96%E7%A8%8B%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88TransactionTemplate%20%20&%20PlatformTransactionManager%EF%BC%89/" title="Spring/事务/编程式事务（TransactionTemplate  & PlatformTransactionManager）">
+									
+										编程式事务（TransactionTemplate  & PlatformTransactionManager）
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2024/06/05/面试题/面试题/" title="面试题/面试题">
+											面试题
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/06/01/%E9%9D%A2%E8%AF%95%E9%A2%98/1.Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题/1.Java基础面试题">
+									
+										1.Java基础面试题
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/06/02/%E9%9D%A2%E8%AF%95%E9%A2%98/2.Spring%20%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题/2.Spring 面试题">
+									
+										2.Spring 面试题
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/06/03/%E9%9D%A2%E8%AF%95%E9%A2%98/3.%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题/3.数据库面试题">
+									
+										3.数据库面试题
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/06/04/%E9%9D%A2%E8%AF%95%E9%A2%98/4.%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题/4.中间件面试题">
+									
+										4.中间件面试题
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/06/06/%E9%9D%A2%E8%AF%95%E9%A2%98/5.%E8%BF%90%E7%BB%B4%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题/5.运维面试题">
+									
+										5.运维面试题
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/07/06/%E9%9D%A2%E8%AF%95%E9%A2%98/6.%E5%9C%BA%E6%99%AF%E9%A2%98/" title="面试题/6.场景题">
+									
+										6.场景题
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/08/07/%E9%9D%A2%E8%AF%95%E9%A2%98/7.%E7%AE%97%E6%B3%95%E9%A2%98/" title="面试题/7.算法题">
+									
+										7.算法题
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2024/06/05/大语言模型/大语言模型/" title="大语言模型/大语言模型">
+											大语言模型
+										</a>
+									</a>
+									
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2024/06/05/运维/运维/" title="运维/运维">
+											运维
+										</a>
+									</a>
+									
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2024/06/06/软件测评/软件测评/" title="软件测评/软件测评">
+											软件测评
+										</a>
+									</a>
+									
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2024/06/06/开源测评/开源测评/" title="开源测评/开源测评">
+											开源测评
+										</a>
+									</a>
+									
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2024/06/06/系统设计最佳实践/系统设计最佳实践/" title="系统设计最佳实践/系统设计最佳实践">
+											系统设计最佳实践
+										</a>
+									</a>
+									
+								</li>
+							</ul>
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										<a class="directory " href="/2024/06/06/QA/QA/" title="QA/QA">
+											QA
+										</a>
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/06/28/QA/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" title="QA/安装部署">
+									
+										安装部署
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	使用注解方式（@Transactional）
+</h1>
+<div class="article-meta">
+	<span> David </span>
+	<span> 2022-11-28 17:02:01 </span>
+	<div id="article-categories">
+		
+		<span>Categories：</span>
+		 
+		<span>
+			<i class="fa fa-folder" aria-hidden="true">
+				<a href="/categories/Spring/">
+					Spring
+				</a>
+			</i>
+			
+		</span>
+		   
+		<span>Tags：</span>
+		 
+		<span>
+			<i class="fa fa-tag" aria-hidden="true">
+				<a href="/tags/［-Transactional］/">
+					［@Transactional］
+				</a>
+			</i>
+		</span>
+		  
+	</div>
+</div>
+
+<div id="article-content"><ul style="list-style-type:disc">
+    <li><span style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;">使用</span></span><span
+            style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                    style="color:#24292e">AspectJ</span></span></span><span style="font-size:12.0pt"><span
+                style="font-family:&quot;"><span style="color:#24292e"> AOP</span></span></span><span
+            style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                    style="color:#24292e">的注解方式</span></span></span><span style="font-size:11.5pt"><span
+                style="font-family:&quot;">@Transactional</span></span></li>
+</ul>
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                style="color:#24292e">&nbsp;</span></span></span></p>
+<ul style="list-style-type:disc">
+    <li><span style="font-size:11.5pt"><span
+                style="font-family:&quot;">@Transactional</span></span><span
+            style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;">有以下参数</span></span></li>
+</ul>
+<table summary="" cellspacing="0"
+    style="border-collapse:collapse; border-color:#a3a3a3; border-style:solid; border-width:1px; margin-left:32px"
+    class=" cke_show_border">
+    <tbody>
+        <tr>
+            <td
+                style="background-color:black; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.0298in">
+                <p><span style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                                style="color:white"><strong>参数</strong></span></span></span></p>
+            </td>
+            <td
+                style="background-color:black; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:7.1812in">
+                <p><span style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                                style="color:white"><strong>描述</strong></span></span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:white; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.0298in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">readOnly</span></span></p>
+            </td>
+            <td
+                style="background-color:white; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:7.1812in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">该属性用于设置当前事务是否为只读事务，设置为</span><span
+                            style="font-family:&quot;">true</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">表示只读，</span><span
+                            style="font-family:&quot;">false</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">则表示可读写，默认值为</span><span
+                            style="font-family:&quot;">false</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">。例如：</span><span
+                            style="font-family:&quot;">@Transactional(readOnly=true)</span></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.0298in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">propagation</span></span></p>
+            </td>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:7.1812in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">该属性用于设置事务的传播行为，具体取值可参考表</span><span
+                            style="font-family:&quot;">6-7</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">。</span></span></p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">例如：</span><span
+                            style="font-family:&quot;">@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)</span></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:white; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.0298in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">isolation</span></span></p>
+            </td>
+            <td
+                style="background-color:white; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:7.1812in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">该属性用于设置底层数据库的事务隔离级别，事务隔离级别用于处理多事务并发的情况，通常使用数据库的默认隔离级别即可，基本不需要进行设置</span></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.0298in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">timeout</span></span></p>
+            </td>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:7.1812in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">该属性用于设置事务的超时秒数，默认值为</span><span
+                            style="font-family:&quot;">-1</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">表示永不超时</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:white; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.0298in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">rollbackFor</span></span></p>
+            </td>
+            <td
+                style="background-color:white; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:7.1812in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">该属性用于设置需要进行回滚的异常类数组，当方法中抛出指定异常数组中的异常时，则进行事务回滚。可用于指定特定异常都情况下进行回滚，例如：</span></span>
+                </p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">指定单一异常类：</span><span
+                            style="font-family:&quot;">@Transactional(rollbackFor=RuntimeException.class)</span></span>
+                </p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">指定多个异常类：</span><span
+                            style="font-family:&quot;">@Transactional(rollbackFor={RuntimeException.class,
+                            Exception.class})</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.0298in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">rollbackForClassName</span></span></p>
+            </td>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:7.2506in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">该属性用于设置需要进行回滚的异常类名称数组，当方法中抛出指定异常名称数组中的异常时，则进行事务回滚。例如：</span></span>
+                </p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">指定单一异常类名称：</span><span
+                            style="font-family:&quot;">@Transactional(rollbackForClassName="RuntimeException")</span></span>
+                </p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">指定多个异常类名称：</span><span
+                            style="font-family:&quot;">@Transactional(rollbackForClassName={"RuntimeException","Exception"})</span></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:white; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.0298in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">noRollbackFor</span></span></p>
+            </td>
+            <td
+                style="background-color:white; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:7.1812in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">该属性用于设置不需要进行回滚的异常类数组，当方法中抛出指定异常数组中的异常时，不进行事务回滚。例如：</span></span>
+                </p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">指定单一异常类：</span><span
+                            style="font-family:&quot;">@Transactional(noRollbackFor=RuntimeException.class)</span></span>
+                </p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">指定多个异常类：</span><span
+                            style="font-family:&quot;">@Transactional(noRollbackFor={RuntimeException.class,
+                            Exception.class})</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.0493in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">noRollbackForClassName</span></span></p>
+            </td>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:7.1618in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">该属性用于设置不需要进行回滚的异常类名称数组，当方法中抛出指定异常名称数组中的异常时，不进行事务回滚。例如：</span></span>
+                </p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">指定单一异常类名称：</span><span
+                            style="font-family:&quot;">@Transactional(noRollbackForClassName="RuntimeException")</span></span>
+                </p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">指定多个异常类名称：</span></span></p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(noRollbackForClassName={"RuntimeException","Exception"})</span></span>
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;">&nbsp;</span></span></p>
+<p><span style="font-size:11.5pt"><span style="font-family:SimSun">&nbsp;</span></span></p>
+<ul style="list-style-type:disc">
+    <li><span style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;">使用</span></span><span
+            style="font-size:12.0pt"><span
+                style="font-family:&quot;">@Transactional</span></span><span
+            style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;">注解需要先在</span></span><span
+            style="font-size:12.0pt"><span
+                style="font-family:&quot;">applicationContext.xml</span></span><span
+            style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;">中引入事务的命名空间</span></span>
+    </li>
+</ul>
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;">&nbsp;</span></span></p>
+<p style="margin-left: 80px;"><span style="font-size:12.0pt"><span
+            style="font-family:&quot;">&nbsp;xmlns:tx="http://www.springframework.org/schema/tx"</span></span>
+</p>
+<p style="margin-left: 80px;"><span style="font-size:12.0pt"><span
+            style="font-family:&quot;">&nbsp;<a
+                data-cke-saved-target="_blank" rel="noopener" href="http://www.springframework.org/schema/tx"
+                href="http://www.springframework.org/schema/tx">http://www.springframework.org/schema/tx</a></span></span>
+</p>
+<p style="margin-left: 80px;"><span style="font-size:12.0pt"><span
+            style="font-family:&quot;">&nbsp;<a
+                data-cke-saved-target="_blank" rel="noopener" href="http://www.springframework.org/schema/tx/spring-tx.xsd"
+                href="http://www.springframework.org/schema/tx/spring-tx.xsd">http://www.springframework.org/schema/tx/spring-tx.xsd</a></span></span>
+</p>
+<p style="margin-left: 80px;"><span style="font-size:12.0pt"><span
+            style="font-family:&quot;">&nbsp;</span></span></p>
+<ul style="list-style-type:disc">
+    <li><span style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                    style="color:black">启用事务：用注解驱动的方式来管理事务</span></span></span></li>
+</ul>
+<p style="margin-left: 80px;"><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                style="color:blue">&lt;tx:annotation-driven</span></span>&nbsp;<span
+            style="font-family:&quot;"><span
+                style="color:blue">transaction-manager</span></span><span
+            style="font-family:&quot;"><span style="color:black">=</span></span><span
+            style="font-family:&quot;"><span
+                style="color:maroon">"transactionManager"</span></span>&nbsp;<span
+            style="font-family:&quot;"><span style="color:blue">/&gt;</span></span></span></p>
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                style="color:blue">&nbsp;</span></span></span></p>
+<ul style="list-style-type:disc">
+    <li><span style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                    style="color:black">在 </span></span></span><span style="font-size:12.0pt"><span
+                style="font-family:&quot;"><span
+                    style="color:black">applicationContext</span></span></span><span style="font-size:12.0pt"><span
+                style="font-family:&quot;"><span style="color:black">.xml </span></span></span><span
+            style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                    style="color:black">中配置事务管理器</span></span></span><span style="font-size:12.0pt"><span
+                style="font-family:&quot;"><span style="color:black"> : id=" transcationManager
+                    "</span></span></span></li>
+</ul>
+<table summary="" cellspacing="0"
+    style="border-collapse:collapse; border-color:#a3a3a3; border-style:solid; border-width:0px; margin-left:68px"
+    class=" cke_show_border">
+    <tbody>
+        <tr>
+            <td
+                style="background-color:white; border-bottom:0px; border-left:0px; border-right:0px; border-top:0px; vertical-align:top; width:8.5777in">
+                <p><span style="font-size:12.0pt"><span style="color:green"><span
+                                style="font-family:&quot;">&lt;!--</span>&nbsp;<span
+                                style="font-family:&quot;">id="transactionManager"</span>&nbsp;<span
+                                style="font-family:&quot;">id</span><span
+                                style="font-family:&quot;Microsoft YaHei UI&quot;">名必须是</span><span
+                                style="font-family:&quot;">transactionManager</span>&nbsp;<span
+                                style="font-family:&quot;">--&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&lt;bean</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span style="color:blue">id</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"transactionManager"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">class</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:blue">&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt">&nbsp;&nbsp;<span style="font-family:&quot;"><span
+                                style="color:blue">&lt;property</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">name</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"dataSource"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">ref</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"dataSource"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">/&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&lt;/bean&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&nbsp;</span></span></span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ul style="list-style-type:disc">
+    <li><span style="font-size:12.0pt"><span
+                style="font-family:&quot;Microsoft YaHei UI&quot;">在要使用事务的方法或类上，添加注解</span></span><span
+            style="font-size:12.0pt"><span style="font-family:&quot;">
+                @Transcational</span></span><span style="font-size:12.0pt"><span
+                style="font-family:&quot;Microsoft YaHei UI&quot;">，</span></span><span style="font-size:12.0pt"><span
+                style="font-family:&quot;">spring</span></span><span style="font-size:12.0pt"><span
+                style="font-family:&quot;Microsoft YaHei UI&quot;">会自动提交，回滚事务</span></span></li>
+</ul>
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                style="color:#70ad47"><strong>示例</strong></span></span></span></p>
+<ul style="list-style-type:disc">
+    <li><span style="color:#e67e22;"><span style="font-size:12.0pt"><span
+                    style="font-family:&quot;">applicationContext.xml</span></span></span></li>
+</ul>
+<table summary="" cellspacing="0"
+    style="border-collapse:collapse; border-color:#a3a3a3; border-style:solid; border-width:0px; margin-left:68px"
+    class=" cke_show_border">
+    <tbody>
+        <tr>
+            <td
+                style="background-color:white; border-bottom:0px; border-left:0px; border-right:0px; border-top:0px; vertical-align:top; width:8.609in">
+                <p><span style="font-size:12.0pt"><span style="color:blue"><span
+                                style="font-family:&quot;">&lt;context:annotation-config</span>&nbsp;<span
+                                style="font-family:&quot;">/&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&lt;context:component-scan</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">base-package</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"com.bluesky"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">/&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&lt;tx:annotation-driven</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">transaction-manager</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"transactionManager"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">/&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&lt;bean</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span style="color:blue">id</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"sessionFactory"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">class</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"org.springframework.orm.hibernate3.LocalSessionFactoryBean"</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:blue">&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt">&nbsp;&nbsp;<span style="font-family:&quot;"><span
+                                style="color:blue">&lt;property</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">name</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"configLocation"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">value</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"classpath:hibernate.cfg.xml"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">/&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt">&nbsp;&nbsp;<span style="font-family:&quot;"><span
+                                style="color:blue">&lt;property</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">name</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"configurationClass"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">value</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"org.hibernate.cfg.AnnotationConfiguration"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">/&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&lt;/bean&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="color:green"><span
+                                style="font-family:&quot;">&lt;!--</span><span
+                                style="font-family:&quot;Microsoft YaHei UI&quot;">&nbsp;定义事务管理器（声明式的事务）&nbsp;</span><span
+                                style="font-family:&quot;">--&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&lt;bean</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span style="color:blue">id</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"transactionManager"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">class</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"org.springframework.orm.hibernate3.HibernateTransactionManager"</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:blue">&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt">&nbsp;&nbsp;<span style="font-family:&quot;"><span
+                                style="color:blue">&lt;property</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">name</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"sessionFactory"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">ref</span></span><span
+                            style="font-family:&quot;"><span style="color:black">=</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"sessionFactory"</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">/&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&lt;/bean&gt;</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">&nbsp;</span></span></span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ul style="list-style-type:disc">
+    <li><span style="color:#e67e22;"><span style="font-size:12.0pt"><span
+                    style="font-family:&quot;">UserDaoImpl</span></span><span
+                style="font-size:12.0pt"><span style="font-family:&quot;">.java</span></span></span>
+    </li>
+</ul>
+<table summary="" cellspacing="0"
+    style="border-collapse:collapse; border-color:#a3a3a3; border-style:solid; border-width:0px; margin-left:68px"
+    class=" cke_show_border">
+    <tbody>
+        <tr>
+            <td
+                style="background-color:white; border-bottom:0px; border-left:0px; border-right:0px; border-top:0px; vertical-align:top; width:6.3173in">
+                <p><span style="font-size:12.0pt"><span style="color:green"><span
+                                style="font-family:&quot;">//</span><span
+                                style="font-family:&quot;Microsoft YaHei UI&quot;">在</span><span
+                                style="font-family:&quot;">DAO</span><span
+                                style="font-family:&quot;Microsoft YaHei UI&quot;">上需加上</span><span
+                                style="font-family:&quot;">@Transactional</span><span
+                                style="font-family:&quot;Microsoft YaHei UI&quot;">注解</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="color:#538135"><span
+                                style="font-family:&quot;">//</span><span
+                                style="font-family:&quot;Microsoft YaHei UI&quot;">加在方法上，表示此方法受事务管理</span><span
+                                style="font-family:&quot;">(</span><span
+                                style="font-family:&quot;Microsoft YaHei UI&quot;">自动提交，回滚事务</span><span
+                                style="font-family:&quot;">)</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="color:#538135"><span
+                                style="font-family:&quot;">//</span><span
+                                style="font-family:&quot;Microsoft YaHei UI&quot;">加在类上，那么这个类中的所有方法都受事务管理</span></span></span>
+                </p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:#ffc000">@Transactional</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:#ffc000">@Component</span><span style="color:black">(</span><span
+                                style="color:maroon">"userDao"</span><span style="color:black">)</span></span></span>
+                </p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:blue">public</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">class</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:black">UserDaoImpl</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">extends</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:black">HibernateDaoSupport</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">implements</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:black">UserDao{</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span
+                            style="font-family:&quot;">&nbsp;</span></span></p>
+                <p><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">public</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:black">List&lt;User&gt;</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:black">listUsers()</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:black">{</span></span></span></p>
+                <p><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">return</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:blue">this</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:black">.getSession().createQuery(</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">"from</span></span>&nbsp;<span
+                            style="font-family:&quot;"><span
+                                style="color:maroon">User"</span></span><span
+                            style="font-family:&quot;"><span
+                                style="color:black">).list();</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                style="font-family:&quot;">}</span></span></span></p>
+                <p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                                style="color:black">}</span></span></span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><span style="font-size:12.0pt"><span
+            style="font-family:&quot;Microsoft YaHei UI&quot;"><strong>注</strong></span></span></p>
+<p style="margin-left: 40px;"><span style="font-size:12.0pt"><span
+            style="font-family:&quot;Microsoft YaHei UI&quot;">在业务方法中不要自己</span><span
+            style="font-family:&quot;">try-catch</span><span
+            style="font-family:&quot;Microsoft YaHei UI&quot;">捕获异常，否则</span><span
+            style="font-family:&quot;">spring</span><span
+            style="font-family:&quot;Microsoft YaHei UI&quot;">无法自动回滚事务</span></span></p>
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                style="color:#ed7d31">&nbsp;</span></span></span></p>
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                style="color:#ed7d31">&nbsp;</span></span></span></p>
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;"><span
+                style="color:#ed7d31">&nbsp;</span></span></span></p>
+<p><span style="font-size:13.5pt"><strong><span
+                style="font-family:&quot;">@Transactional</span></strong><strong><span
+                style="font-family:&quot;Microsoft YaHei UI&quot;">的事务属性</span></strong></span></p>
+<p><span style="font-size:13.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;">&nbsp;</span></span></p>
+<table summary="" cellspacing="0"
+    style="border-collapse:collapse; border-color:#a3a3a3; border-style:solid; border-width:1px; margin-left:32px"
+    class=" cke_show_border">
+    <tbody>
+        <tr>
+            <td
+                style="background-color:black; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.8722in">
+                <p><span style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                                style="color:white"><strong>事务超时</strong></span></span></span></p>
+            </td>
+            <td
+                style="background-color:black; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.4777in">
+                <p><span style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                                style="color:white"><strong>说明</strong></span></span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.8722in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(timeout=30)</span></span></p>
+            </td>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:2.4777in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">默认是</span><span
+                            style="font-family:&quot;">-1</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">秒</span></span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><span style="font-size:13.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;">&nbsp;</span></span></p>
+<table summary="" cellspacing="0"
+    style="border-collapse:collapse; border-color:#a3a3a3; border-style:solid; border-width:1px; margin-left:32px"
+    class=" cke_show_border">
+    <tbody>
+        <tr>
+            <td
+                style="background-color:black; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7097in">
+                <p><span style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                                style="color:white"><strong>传播行为</strong></span></span></span></p>
+            </td>
+            <td
+                style="background-color:black; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.2263in">
+                <p><span style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                                style="color:white"><strong>说明</strong></span></span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7097in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(propagation=Propagation.REQUIRED)</span></span>
+                </p>
+            </td>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.2263in">
+                <p><span style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;">如果有事务，
+                            那么加入事务， 没有的话新建一个</span><span style="font-family:&quot;">(</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">默认情况</span><span
+                            style="font-family:&quot;">)</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7291in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(propagation=Propagation.NOT_SUPPORTED)</span></span>
+                </p>
+            </td>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.2069in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">容器不为这个方法开启事务</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7097in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(propagation=Propagation.REQUIRES_NEW)</span></span>
+                </p>
+            </td>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.2958in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">不管是否存在事务，都创建一个新的事务，原来的挂起，新的执行完毕，继续执行老的事务</span></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7097in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(propagation=Propagation.MANDATORY)</span></span>
+                </p>
+            </td>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.2263in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">必须在一个已有的事务中执行，否则抛出异常</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7097in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(propagation=Propagation.NEVER)</span></span>
+                </p>
+            </td>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.2263in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">必须在一个没有的事务中执行，否则抛出异常</span><span
+                            style="font-family:&quot;">(</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">与</span><span
+                            style="font-family:&quot;">Propagation.MANDATORY</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">相反</span><span
+                            style="font-family:&quot;">)</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7097in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(propagation=Propagation.SUPPORTS)</span></span>
+                </p>
+            </td>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.2263in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">如果其他</span><span
+                            style="font-family:&quot;">bean</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">调用这个方法，在其他</span><span
+                            style="font-family:&quot;">bean</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">中声明事务，那就用事务。如果其他</span><span
+                            style="font-family:&quot;">bean</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">没有声明事务，那就不用事务&nbsp;</span></span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                style="color:#24292e">&nbsp;</span></span></span></p>
+<table summary="" cellspacing="0"
+    style="border-collapse:collapse; border-color:#a3a3a3; border-style:solid; border-width:1px; margin-left:32px"
+    class=" cke_show_border">
+    <tbody>
+        <tr>
+            <td
+                style="background-color:black; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7618in">
+                <p><span style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                                style="color:white"><strong>隔离级别</strong></span></span></span></p>
+            </td>
+            <td
+                style="background-color:black; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.0784in">
+                <p><span style="font-size:11.5pt"><span style="font-family:&quot;Microsoft YaHei UI&quot;"><span
+                                style="color:white"><strong>说明</strong></span></span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7812in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(isolation =
+                            Isolation.READ_UNCOMMITTED)</span></span></p>
+            </td>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.1284in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">读取未提交数据</span><span
+                            style="font-family:&quot;">(</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">会出现脏读， 不可重复读</span><span
+                            style="font-family:&quot;">)</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">，基本不使用</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7618in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(isolation =
+                            Isolation.READ_COMMITTED)</span></span></p>
+            </td>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.0784in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">(SQLSERVER</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">默认</span><span
+                            style="font-family:&quot;">)</span></span></p>
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">读取已提交数据</span><span
+                            style="font-family:&quot;">(</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">会出现不可重复读和幻读</span><span
+                            style="font-family:&quot;">)</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7618in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(isolation =
+                            Isolation.REPEATABLE_READ)</span></span></p>
+            </td>
+            <td
+                style="border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.0784in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">可重复读</span><span
+                            style="font-family:&quot;">(</span><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">会出现幻读</span><span
+                            style="font-family:&quot;">)</span></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.7618in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;">@Transactional(isolation =
+                            Isolation.SERIALIZABLE)</span></span></p>
+            </td>
+            <td
+                style="background-color:#e7e6e6; border-bottom:1px solid #a3a3a3; border-left:1px solid #a3a3a3; border-right:1px solid #a3a3a3; border-top:1px solid #a3a3a3; vertical-align:top; width:4.0784in">
+                <p><span style="font-size:11.5pt"><span
+                            style="font-family:&quot;Microsoft YaHei UI&quot;">串行化</span></span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<!-- post-guide -->
+
+
+
+<div class="post-guide">
+<div class="item left">
+
+<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/%E9%85%8D%E7%BD%AExml%E6%96%B9%E5%BC%8F/%E5%88%9B%E5%BB%BA%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8/">
+<i class="fa fa-angle-left" aria-hidden="true"></i>
+创建事务管理器
+</a>
+
+</div>
+<div class="item right">
+
+<a href="/2022/11/29/Spring/%E4%BA%8B%E5%8A%A1/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%88xml%20&%20%E6%B3%A8%E8%A7%A3%EF%BC%89/%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F%EF%BC%88@Transactional%EF%BC%89/%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5%E4%BD%BF%E7%94%A8%E4%BA%8B%E5%8A%A1%EF%BC%88@Around%EF%BC%89/">
+环绕通知使用事务（@Around）
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+</a>
+
+</div>
+</div>
+
+
+<!-- giscus -->
+
+
+
+<script>
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+		
+			©2022<span>-</span><span>2024
+		
+		
+		</span>
+		<a target="_blank" rel="noopener" href="https://github.com/wangchangwei">
+			David
+		</a>
+
+		 |
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv">
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+		
+		<br />
+		Theme
+		<a
+			href="https://github.com/Exisi/hexo-theme-node-tree"
+			target="_blank"
+			>Node-Tree</a
+		>
+		Powered by
+		<a href="https://hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
