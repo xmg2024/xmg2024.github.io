@@ -852,7 +852,33 @@
 	</div>
 </div>
 
-<div id="article-content"></div>
+<div id="article-content"><h1 id="Redis-作为消息队列的定位"><a href="#Redis-作为消息队列的定位" class="headerlink" title="Redis 作为消息队列的定位"></a>Redis 作为消息队列的定位</h1><p>Redis 本质是内存键值数据库，但基于 <code>List</code>、<code>Pub/Sub</code>、<code>Stream</code> 等数据结构，可以实现轻量级消息队列能力。常用于<strong>简单异步处理、缓存 + MQ 混合场景</strong>，不适合作为特别核心、强可靠的 MQ。</p>
+
+<h1 id="几种常见的队列实现方式"><a href="#几种常见的队列实现方式" class="headerlink" title="几种常见的队列实现方式"></a>几种常见的队列实现方式</h1><ul>
+<li><strong>List + BLPOP/BRPOP</strong>：用 List 模拟 FIFO 队列，消费者使用阻塞 POP 获取消息，实现最简单的队列模型。</li>
+<li><strong>Pub/Sub</strong>：发布订阅模式，发送方发布到 channel，所有订阅者都能收到，但消息不落盘，消费者离线期间消息会丢失。</li>
+<li><strong>Stream</strong>：Redis 5 引入的流式数据结构，支持消费组、消息 ID、ACK 等，功能更接近专业 MQ。</li>
+</ul>
+
+<h1 id="典型使用场景"><a href="#典型使用场景" class="headerlink" title="典型使用场景"></a>典型使用场景</h1><ul>
+<li>对可靠性要求不那么高的异步任务处理</li>
+<li>与缓存紧耦合的简单异步通知（如缓存失效通知）</li>
+<li>小规模的实时统计、在线人数等轻量消息场景</li>
+<li>使用 Stream 做业务日志、行为流水的简单收集</li>
+</ul>
+
+<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><p><strong>优点：</strong></p>
+<ul>
+<li>部署简单，很多项目本身就依赖 Redis</li>
+<li>读写性能高，延迟低</li>
+<li>支持多种模型（List 队列、Pub/Sub、Stream）</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>可靠性、消息堆积能力不如专业 MQ（Kafka / RocketMQ / RabbitMQ）</li>
+<li>集群扩展、消息路由能力有限</li>
+<li>Pub/Sub 不存储消息，消费者离线期间消息直接丢弃</li>
+</ul></div>
 
 <!-- post-guide -->
 
