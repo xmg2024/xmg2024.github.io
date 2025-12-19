@@ -26,7 +26,6 @@ a {
     transition: all 0.5s;
 }
 
-
 /* header */
 
 #header {
@@ -86,7 +85,6 @@ a.active {
 #menu .menu-item-link:hover {
     border-bottom: 1px solid;
 }
-
 
 /* sidebar */
 
@@ -246,7 +244,6 @@ ul li a {
     -o-transition: 0.5s;
 }
 
-
 /* index */
 
 #content {
@@ -318,7 +315,6 @@ ul li a {
     background-color: #e0eee8;
     transition: all 0.2s;
 }
-
 
 /* article */
 
@@ -468,7 +464,6 @@ table td {
     justify-content: flex-end;
 }
 
-
 /* footer */
 
 #footer {
@@ -489,7 +484,6 @@ table td {
 .article-toc ul li {
     list-style: disc !important;
 }
-
 
 /* @media */
 
