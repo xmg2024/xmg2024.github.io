@@ -852,7 +852,43 @@
 	</div>
 </div>
 
-<div id="article-content"></div>
+<div id="article-content"><h1 id="RabbitMQ-的功能和定位"><a href="#RabbitMQ-的功能和定位" class="headerlink" title="RabbitMQ 的功能和定位"></a>RabbitMQ 的功能和定位</h1><p>RabbitMQ 是基于 AMQP 协议的开源消息队列，由 Erlang 实现，稳定性和可靠性非常好。适合<strong>可靠投递、灵活路由、跨语言</strong>的企业级场景，是传统企业和金融行业常用的消息中间件。</p>
+
+<h1 id="核心概念-AMQP-模型"><a href="#核心概念-AMQP-模型" class="headerlink" title="核心概念 / AMQP 模型"></a>核心概念 / AMQP 模型</h1><ul>
+<li><strong>Producer</strong>：生产者，将消息发送到 Exchange。</li>
+<li><strong>Exchange</strong>：交换机，负责按照路由规则把消息转发到队列。</li>
+<li><strong>Queue</strong>：队列，实际存储消息并被消费者拉取。</li>
+<li><strong>Binding</strong>：绑定关系，定义 Exchange 与 Queue 的路由规则。</li>
+<li><strong>RoutingKey</strong>：路由键，用于匹配绑定规则。</li>
+<li><strong>Consumer</strong>：消费者，从队列中消费消息，可以手动 / 自动 ACK。</li>
+</ul>
+
+<h1 id="常见-Exchange-类型"><a href="#常见-Exchange-类型" class="headerlink" title="常见 Exchange 类型"></a>常见 Exchange 类型</h1><ul>
+<li><strong>direct</strong>：按 routingKey 精确匹配路由，适合点对点消息。</li>
+<li><strong>fanout</strong>：广播模式，消息会发送到所有绑定的队列。</li>
+<li><strong>topic</strong>：按通配符匹配 routingKey，支持多级主题订阅。</li>
+<li><strong>headers</strong>：按消息头匹配路由，使用较少。</li>
+</ul>
+
+<h1 id="典型使用场景"><a href="#典型使用场景" class="headerlink" title="典型使用场景"></a>典型使用场景</h1><ul>
+<li>订单、支付等关键链路的可靠异步通知（手动 ACK + 死信队列）</li>
+<li>多服务之间的发布订阅（topic / fanout 模式）</li>
+<li>延时任务（基于 TTL + 死信队列实现延时队列）</li>
+<li>跨语言、跨平台系统集成（多语言客户端支持好）</li>
+</ul>
+
+<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><p><strong>优点：</strong></p>
+<ul>
+<li>遵循 AMQP 标准，协议成熟、跨语言友好</li>
+<li>路由模型灵活（多种 Exchange）</li>
+<li>支持消息确认、重试、死信队列等可靠性机制</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>吞吐量不如 Kafka、RocketMQ，适合中等规模场景</li>
+<li>集群和镜像队列配置相对复杂</li>
+<li>大规模堆积消息时性能下降明显</li>
+</ul></div>
 
 <!-- post-guide -->
 
