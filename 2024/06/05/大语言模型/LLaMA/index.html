@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>LLaMA&nbsp;&nbsp;✦&nbsp;Book</title>
+	<meta name="description" content="每一个不曾起舞的日子，都是对生命的辜负" />
+	<script>
+		let searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		let homeHost = "https://xmg2024.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+	<script src="/js/main.js"></script>
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	<meta name="generator" content="Hexo 5.4.1">
+</head>
+<body>
+	<header id="header">
+	<a id="title" href="/" class="log<div class=""></div>
+		<img id="logo" src="/favicon-white.ico" alt="logo"/>
+		Book
+	</a>
+	<ul id="menu">
+		<li class="menu-item"><a href="/about" class="menu-item-link">关于</a></li>
+		<li class="menu-item"><a href="/tags" class="menu-item-link">标签</a></li>
+		<li class="menu-item"><a href="/categories" class="menu-item-link">分类</a></li>
+		<li class="menu-item"><a href="https://github.com/xmg2024" class="menu-item-link" target="_blank"><i class="fa fa-github fa-2x"></i></a></li>
+		<li class="menu-item dark-mode"><a href="#" class="menu-item-link"><i class="fa fa-moon-o fa-2x"></i></a></li>
+	</ul>
+</header>
+	<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			<ul>
+				<li class="directory">
+					<a href="#" class="directory">
+						<i class="fa fa-plus-square-o"></i>
+						<a class="directory " href="/2024/06/05/大语言模型/大语言模型/" title="大语言模型/大语言模型">大语言模型</a>
+					</a>
+					<ul>
+						<li class="file"><a href="/2024/06/05/大语言模型/GPT-4/" title="大语言模型/GPT-4">GPT-4</a></li>
+						<li class="file"><a href="/2024/06/05/大语言模型/Claude/" title="大语言模型/Claude">Claude</a></li>
+						<li class="file active"><a href="/2024/06/05/大语言模型/LLaMA/" title="大语言模型/LLaMA">LLaMA</a></li>
+						<li class="file"><a href="/2024/06/05/大语言模型/文心一言/" title="大语言模型/文心一言">文心一言</a></li>
+						<li class="file"><a href="/2024/06/05/大语言模型/通义千问/" title="大语言模型/通义千问">通义千问</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+	<div id="content">
+		<h1 id="article-title">LLaMA</h1>
+		<div class="article-meta">
+			<span> xmg2024 </span>
+			<span> 2025-12-19 09:59:54 </span>
+			<div id="article-categories">
+				<span>Categories：</span>
+				<span><i class="fa fa-folder" aria-hidden="true"><a href="/categories/大语言模型/">大语言模型</a></i></span>
+				<span>Tags：</span>
+				<span><i class="fa fa-tag" aria-hidden="true"><a href="/tags/llama/">llama</a></i></span>
+			</div>
+		</div>
+		<div id="article-content"><h2 id="前世"><a href="#前世" class="headerlink" title="前世"></a>前世</h2>
+<p>LLaMA（Large Language Model Meta AI）是Meta（Facebook）于2023年2月发布的开源大语言模型。从LLaMA 1到LLaMA 2（2023年7月）、LLaMA 3（2024年4月），持续推动开源AI生态发展。</p>
+
+<h2 id="今身"><a href="#今身" class="headerlink" title="今身"></a>今身</h2>
+<p>LLaMA 3是当前最强的开源大语言模型，包含8B、70B、405B等版本。采用Apache 2.0开源协议，推动AI民主化。在开源社区广泛使用，衍生出众多微调版本（如Llama-2-Chat、Vicuna等），成为开源AI生态的基石。</p>
+
+<h2 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h2>
+<p>基于Transformer架构，采用：1）RMSNorm归一化；2）SwiGLU激活函数；3）RoPE位置编码；4）分组查询注意力（GQA）降低推理成本；5）大规模数据预训练（15T tokens）。训练数据质量优化，去除低质量数据。</p>
+
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2>
+<ul>
+<li>开源AI应用开发</li>
+<li>本地部署的私有AI助手</li>
+<li>研究和教育用途</li>
+<li>企业定制化AI系统</li>
+<li>边缘设备AI推理</li>
+</ul>
+
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2>
+<p><strong>优点：</strong>1）完全开源，可自由使用和修改；2）性能接近闭源模型；3）支持本地部署，数据安全；4）社区活跃，生态丰富。</p>
+<p><strong>缺点：</strong>1）需要大量计算资源；2）中文能力相对较弱；3）需要技术团队进行部署和优化；4）某些版本有使用限制。</p>
+
+<h2 id="未来展望"><a href="#未来展望" class="headerlink" title="未来展望"></a>未来展望</h2>
+<p>将继续开源更大规模的模型，推动AI民主化。多模态能力将增强，支持图像、音频等。模型压缩和量化技术将降低部署门槛。预计LLaMA 4将进一步提升性能，成为开源AI的标杆。</div>
+	</div>
+	<div id="footer">
+		<p><br />Theme <a href="https://github.com/Exisi/hexo-theme-node-tree" target="_blank">Node-Tree</a> Powered by <a href="https://hexo.io" target="_blank">Hexo</a></p>
+	</div>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
