@@ -852,7 +852,43 @@
 	</div>
 </div>
 
-<div id="article-content"></div>
+<div id="article-content"><h1 id="RocketMQ-的功能和定位"><a href="#RocketMQ-的功能和定位" class="headerlink" title="RocketMQ 的功能和定位"></a>RocketMQ 的功能和定位</h1><p>RocketMQ 是阿里开源的分布式消息中间件，最早服务于阿里双十一大促场景，核心目标是<strong>高吞吐、高可靠、可伸缩</strong>。常用于异步解耦、削峰填谷、事务消息等场景，是金融、电商领域使用非常广泛的消息队列之一。</p>
+
+<h1 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h1><ul>
+<li><strong>Producer</strong>：发送消息的生产者，可以做重试、批量发送等。</li>
+<li><strong>Consumer</strong>：消费消息的消费者，支持集群消费和广播消费两种模式。</li>
+<li><strong>Topic</strong>：主题，消息的逻辑分类，不同业务通常使用不同 Topic。</li>
+<li><strong>Tag</strong>：标签，同一 Topic 下对消息做更细粒度的过滤。</li>
+<li><strong>Broker</strong>：真正存储和转发消息的服务节点，多个 Broker 组成集群。</li>
+<li><strong>NameServer</strong>：路由注册中心，维护 Topic 与 Broker 的路由信息。</li>
+</ul>
+
+<h1 id="消息投递与消费模型"><a href="#消息投递与消费模型" class="headerlink" title="消息投递与消费模型"></a>消息投递与消费模型</h1><p>Producer 先从 NameServer 获取 Topic 的路由信息，再将消息发送到对应 Broker 的队列中。Consumer 通过消费位点（offset）顺序拉取消息并进行处理。</p>
+<ul>
+<li><strong>集群消费</strong>：同一消费组内多个实例共同消费一个 Topic，达到负载均衡。</li>
+<li><strong>广播消费</strong>：同一消息会被消费组内所有实例各消费一遍，常用于配置刷新这类场景。</li>
+<li><strong>顺序消息</strong>：通过同一业务 Key 固定落到同一队列，保证队列内消息有序。</li>
+</ul>
+
+<h1 id="典型使用场景"><a href="#典型使用场景" class="headerlink" title="典型使用场景"></a>典型使用场景</h1><ul>
+<li>订单创建、支付完成等事件的异步通知</li>
+<li>高峰流量削峰（下单写入 MQ，后端系统按能力慢慢消费）</li>
+<li>分布式事务（事务消息确保本地事务与消息发送的一致性）</li>
+<li>日志收集、行为埋点采集</li>
+</ul>
+
+<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><p><strong>优点：</strong></p>
+<ul>
+<li>单机高吞吐，集群易扩展，天然支持大规模场景</li>
+<li>支持顺序消息、延时消息、事务消息等高级特性</li>
+<li>存储基于 CommitLog，磁盘顺序写，性能稳定</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>运维复杂度相对较高，需要理解 NameServer、Broker 等角色</li>
+<li>生态相对 Kafka 略弱，跨语言客户端不如 RabbitMQ 丰富</li>
+<li>版本之间差异较大，升级和迁移需要评估</li>
+</ul></div>
 
 <!-- post-guide -->
 
